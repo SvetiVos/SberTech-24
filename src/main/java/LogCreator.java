@@ -5,6 +5,7 @@ import java.util.Date;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
+
 public class LogCreator{
 
     public void createLog() {

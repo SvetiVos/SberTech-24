@@ -1,5 +1,6 @@
 import lombok.NonNull;
 
+
 @Task1(days = 4)
 abstract class Task4And5And6{
     abstract void method1(@NonNull DataContainer dataContainer);
@@ -20,6 +21,7 @@ class Child1 extends Task4And5And6{
         dataContainer.setBooleanValue(true);
     }
 }
+
 
 @Task1(days = 5)
 class Child2 extends Task4And5And6{
