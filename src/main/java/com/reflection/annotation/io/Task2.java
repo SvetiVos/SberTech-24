@@ -1,4 +1,4 @@
-package com.reflection.annotation.IO;
+package com.reflection.annotation.io;
 
 import java.lang.annotation.*;
 
@@ -9,11 +9,4 @@ public @interface Task2 {
     int hour();
     int priority();
     String description();
-}
-
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
-@interface Annotation {
-    Task2[] value();
 }

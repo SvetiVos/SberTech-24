@@ -1,4 +1,4 @@
-package com.reflection.annotation.IO;
+package com.reflection.annotation.io;
 import lombok.*;
 
 @Getter
@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 public class DataContainer {
-    int intValue;
-    String stringValue;
-    boolean booleanValue;
+    private int intValue;
+    private String stringValue;
+    private boolean booleanValue;
 }

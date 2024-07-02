@@ -25,7 +25,7 @@ public class TestTask {
         List cl = new ArrayList<>();
         cl.add(Child1.class);
         cl.add(Child2.class);
-        cl = reflection.Search(cl, 5);
+        cl = reflection.search(cl, 5);
         assertEquals(1, cl.size());
     }
 
@@ -33,7 +33,7 @@ public class TestTask {
     public void testReflect() throws InvocationTargetException, IllegalAccessException, InstantiationException{
         Reflection reflection = new Reflection();
         DataContainer dataContainer = new DataContainer();
-        reflection.Reflect(5, 3, dataContainer);
+        reflection.reflect(5, 3, dataContainer);
         assertFalse(reflection.str.length() < 0);
     }
 

@@ -1,4 +1,5 @@
-package com.reflection.annotation.IO;
+package com.reflection.annotation.io;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -38,6 +39,7 @@ public class LogCreator{
     }
 
     public String readFile(String name) {
+
         return null;
     }
 }
