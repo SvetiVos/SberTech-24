@@ -19,10 +19,4 @@ public class Person {
         this.cat = cat;
         this.dog = dog;
     }
-
-    @Override
-    public String toString(){
-        return "Person {" + "parrot1 = " + parrot1 + ", parrot2 = " + parrot2 +
-                ", cat = " + cat + ", dog = " + dog + "}";
-    }
 }

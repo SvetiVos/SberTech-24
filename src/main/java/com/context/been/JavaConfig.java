@@ -35,7 +35,6 @@ public class JavaConfig {
 
     @Bean
     public Person person(Parrot parrot1, Parrot parrot2, Cat cat, Dog dog){
-        person(parrot1, parrot2, cat, dog).setPersonName("Рома");
         return new Person(parrot1, parrot2, cat, dog);
     }
 }
