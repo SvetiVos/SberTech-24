@@ -1,0 +1,65 @@
+# Регистрация клиента
+POST /clients
+{
+    "nameClient": "Игорь",
+    "login": "igorek",
+    "password": "0000",
+    "email": "igorek@mail.ru"
+}
+
+# Получение клиента
+GET /clients/{clientsId}
+
+# Удаление клиента
+DELETE /clients/{clientsId}
+
+# Создание продукта
+POST /products
+{
+    "name": "Яблоко",
+    "price": 100,
+    "quantity": 10
+}
+
+# Изменение продукта
+POST /products/{id}
+{
+    "name": "Груша",
+    "price": 200,
+    "quantity": 5
+}
+
+# Удаление продукта
+DELETE /products/{id}
+
+# Получение отдельного продукта
+GET /products/{id}
+
+# Получение списка продуктов с фильтрацией
+GET /products
+
+# Добавление продукта в корзину
+POST /cart/{cartId}/add
+{
+    "name": "Яблоко",
+    "price": 200,
+    "quantity": 5
+}
+
+# Изменение количества продукта в корзине
+POST /cart/{cartId}/update/{id}
+{
+    "cartId": 1,
+    "id": 1,
+    "quantity": 2
+}
+
+# Удаление продукта из корзины
+DELETE /cart/{cartId}/remove/{id}
+
+# Оплата
+POST /cart/pay
+{
+    "clientId": 1,
+    "promoCode": "zhbdcmhj"
+}
