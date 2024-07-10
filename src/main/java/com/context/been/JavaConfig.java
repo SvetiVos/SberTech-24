@@ -7,30 +7,22 @@ import org.springframework.context.annotation.Configuration;
 public class JavaConfig {
     @Bean
     public Parrot parrot1(){
-        Parrot parrot = new Parrot();
-        parrot.setParrotName("ююю");
-        return new Parrot();
+        return new Parrot("ююю");
     }
 
     @Bean
     public Parrot parrot2(){
-        Parrot parrot = new Parrot();
-        parrot.setParrotName("ыыы");
-        return new Parrot();
+        return new Parrot("ыыы");
     }
 
     @Bean
     public Cat cat(){
-        Cat cat = new Cat();
-        cat.setCatName("Мур");
-        return new Cat();
+        return new Cat("Мур");
     }
 
     @Bean
     public Dog dog(){
-        Dog dog = new Dog();
-        dog.setDogName("ццц");
-        return new Dog();
+        return new Dog("ццц");
     }
 
     @Bean

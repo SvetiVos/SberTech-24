@@ -6,5 +6,5 @@ import lombok.*;
 @Data
 @Component
 public class Cat {
-    private String catName;
+    private String catName = "Cat";
 }

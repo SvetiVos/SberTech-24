@@ -9,7 +9,10 @@ public class JavaConfig {
     @Bean
     Application app() {
         Application app = new Application();
-        return null;
+        app.setBankClientsApp(bankClientsApp());
+        app.setTransferByPhoneApp(transferByPhoneApp());
+        app.setDatabase(database());
+        return app;
     }
 
     @Bean

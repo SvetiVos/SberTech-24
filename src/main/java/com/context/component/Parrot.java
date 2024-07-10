@@ -8,5 +8,5 @@ import lombok.*;
 @Scope("prototype")
 @Component
 public class Parrot {
-    private String parrotName;
+    private String parrotName = "Parrot";
 }

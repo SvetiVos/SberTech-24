@@ -5,5 +5,5 @@ import lombok.*;
 @Data
 @Component
 public class Dog {
-    private String dogName;
+    private String dogName = "Dog";
 }
