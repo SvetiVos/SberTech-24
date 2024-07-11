@@ -19,11 +19,11 @@ public class CartService {
 
     private static final Map<Integer, Cart> CART_REPOSITORY_MAP = new HashMap<>();
 
-    private static final AtomicInteger CART_ID_HOLDER = new AtomicInteger();
+    private static final Integer CART_ID_HOLDER = 0;
 
     private static final Map<Integer, Product> PRODUCT_REPOSITORY_MAP = new HashMap<>();
 
-    private static final AtomicInteger PRODUCT_ID_HOLDER = new AtomicInteger();
+    private static final Integer PRODUCT_ID_HOLDER = 0;
 
 
     public List<Cart> readAll() {
@@ -31,13 +31,13 @@ public class CartService {
     }
 
     public void createCart(Cart cart) {
-        final int cartIdHolder = CART_ID_HOLDER.incrementAndGet();
+        final int cartIdHolder = CART_ID_HOLDER + 1;
         cart.setCartId(cartIdHolder);
         CART_REPOSITORY_MAP.put(cartIdHolder, cart);
     }
 
     public void addProductToCart(int cartId, Product product) {
-        final int productId = PRODUCT_ID_HOLDER.incrementAndGet();
+        final int productId = PRODUCT_ID_HOLDER + 1;
         product.setId(productId);
         Cart cart = CART_REPOSITORY_MAP.get(cartId);
         List<Product> products = cart.getProducts();

@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.models.Client;
 import com.example.models.Product;
 import com.example.services.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import java.util.Optional;
 
 @RestController
 public class ProductController {
@@ -27,18 +29,13 @@ public class ProductController {
     public ResponseEntity<List<Product>> read() {
         final List<Product> products = productService.readAll();
 
-        return products != null &&  !products.isEmpty()
-                ? new ResponseEntity<>(products, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return ResponseEntity.of(Optional.ofNullable(products));
     }
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> read(@PathVariable(name = "id") int id) {
-        final Product product = productService.read(id);
-
-        return product != null
-                ? new ResponseEntity<>(product, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        final Optional<Product> product = Optional.ofNullable(productService.read(id));
+        return ResponseEntity.of(product);
     }
 
     @PostMapping("/products")

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import java.util.Optional;
 
 @RestController
 public class ClientController {
@@ -29,18 +30,14 @@ public class ClientController {
     public ResponseEntity<List<Client>> read() {
         final List<Client> clients = clientService.readAll();
 
-        return clients != null &&  !clients.isEmpty()
-                ? new ResponseEntity<>(clients, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return ResponseEntity.of(Optional.ofNullable(clients));
+
     }
 
     @GetMapping("/clients/{clientId}")
     public ResponseEntity<Client> read(@PathVariable(name = "clientId") int clientId) {
-        final Client client = clientService.read(clientId);
-
-        return client != null
-                ? new ResponseEntity<>(client, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        final Optional<Client> client = Optional.ofNullable(clientService.read(clientId));
+        return ResponseEntity.of(client);
     }
 
     @PostMapping("/clients")

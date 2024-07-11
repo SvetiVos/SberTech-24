@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import com.example.services.CartService;
 import com.example.services.ClientService;
 import java.lang.String;
+import java.util.Optional;
 
 @RestController
 public class CartController {
@@ -29,11 +30,8 @@ public class CartController {
 
     @GetMapping("/cart")
     public ResponseEntity<List<Cart>> read() {
-        final List<Cart> carts = cartService.readAll();
-
-        return carts != null &&  !carts.isEmpty()
-                ? new ResponseEntity<>(carts, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        final Optional<List<Cart>> carts = Optional.ofNullable(cartService.readAll());
+        return ResponseEntity.of(carts);
     }
 
     @PostMapping("/cart")
@@ -68,8 +66,6 @@ public class CartController {
     @PostMapping("/cart/pay")
     public ResponseEntity<?> pay(@PathVariable int clientId, @PathVariable String promoCode) {
         final boolean payd = cartService.pay(clientId, promoCode);
-        return payd
-                ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+        return ResponseEntity.of(payd ? Optional.of(HttpStatus.OK) : Optional.empty());
     }
 }

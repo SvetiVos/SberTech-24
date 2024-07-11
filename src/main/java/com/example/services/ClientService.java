@@ -16,14 +16,14 @@ public class ClientService {
 
     private static final Map<Integer, Client> CLIENT_REPOSITORY_MAP = new HashMap<>();
 
-    private static final AtomicInteger CLIENT_ID_HOLDER = new AtomicInteger();
+    private static final Integer CLIENT_ID_HOLDER = 0;
 
     public List<Client> readAll() {
         return new ArrayList<>(CLIENT_REPOSITORY_MAP.values());
     }
 
     public void createClient(Client client) {
-        final int clientId = CLIENT_ID_HOLDER.incrementAndGet();
+        final int clientId = CLIENT_ID_HOLDER + 1;
         client.setClientId(clientId);
         CLIENT_REPOSITORY_MAP.put(clientId, client);
     }

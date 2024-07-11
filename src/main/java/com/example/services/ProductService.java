@@ -15,7 +15,7 @@ public class ProductService {
 
     private static final Map<Integer, Product> PRODUCT_REPOSITORY_MAP = new HashMap<>();
 
-    private static final AtomicInteger PRODUCT_ID_HOLDER = new AtomicInteger();
+    private static final Integer PRODUCT_ID_HOLDER = 0;
 
     public List<Product> readAll() {
         return new ArrayList<>(PRODUCT_REPOSITORY_MAP.values());
@@ -26,7 +26,7 @@ public class ProductService {
     }
 
     public void createProduct(Product product) {
-        final int productId = PRODUCT_ID_HOLDER.incrementAndGet();
+        final int productId = PRODUCT_ID_HOLDER + 1;
         product.setId(productId);
         PRODUCT_REPOSITORY_MAP.put(productId, product);
     }
