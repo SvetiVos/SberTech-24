@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public class ClientRepository {
-    private static final String JDBC = "jdbc:postgresql://localhost:8085/postgres?currentSchema=jdbc_sch&user=postgres&password=root";
+    private static final String JDBC = "jdbc:h2://localhost:8085/SCHEMA=jdbc_sch;USER=admin;PASSWORD=root";
 
     public long createClient(Client client, int cartId) {
         var insertSql = "INSERT INTO clients (name_client, login, password, email, cart_id) VALUES (?,?,?,?,?);";

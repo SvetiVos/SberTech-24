@@ -13,7 +13,8 @@ import lombok.var;
 @Repository
 public class CartRepository {
 
-    public static final String JDBC = "jdbc:postgresql://localhost:8085/postgres?currentSchema=jdbc_sch&user=postgres&password=root";
+    public static final String JDBC = "jdbc:h2://localhost:8085/SCHEMA=jdbc_sch;USER=admin;PASSWORD=root";
+    ;
 
     public long createCart() {
         var insertSql = "INSERT INTO cart (promoCode) VALUES (?);";

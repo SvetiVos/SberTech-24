@@ -14,7 +14,7 @@ import com.example.models.Product;
 @Repository
 public class ProductRepository {
 
-    public static final String JDBC = "jdbc:postgresql://localhost:8085/postgres?currentSchema=jdbc_sch&user=postgres&password=root";
+    public static final String JDBC = "jdbc:h2://localhost:8085/SCHEMA=jdbc_sch;USER=admin;PASSWORD=root";
 
     public long createProduct(Product product) {
         var insertSql = "INSERT INTO products (name, price, quantity) VALUES (?,?,?);";
